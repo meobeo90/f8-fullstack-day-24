@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playball", sans-serif;
+  font-weight: 500;
+  background-color: #c7c4c4;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+}
+
+.cat-card {
+  width: 30vw;
+  height: 90vh;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: 0.5s ease-in-out;
+  transition-property: transform, opacity;
+  transform-origin: bottom center;
+}
+.cat-card.right {
+  transform: translate(150vw, 0) rotate(25deg);
+  /* opacity: 0; */
+}
+.cat-card.left {
+  transform: translate(-150vw, 0) rotate(-25deg);
+  /* opacity: 0; */
+}
+.avatar {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.cat-info {
+  position: absolute;
+  z-index: 1;
+  bottom: 15%;
+  left: 15px;
+  width: 100%;
+  color: #fff;
+  padding: 10px;
+}
+h1 {
+  font-size: 40px;
+  font-family: "Playball", sans-serif;
+}
+p {
+  font-family: "Libre Bodoni", sans-serif;
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.icon {
+  width: 30vw;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.disliked-icon,
+.liked-icon {
+  font-size: 30px;
+  padding: 20px;
+  color: red;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: grab;
+}
