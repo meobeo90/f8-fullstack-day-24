@@ -29,11 +29,11 @@ body {
   transform-origin: bottom center;
 }
 .cat-card.right {
-  transform: translate(150vw, 0) rotate(25deg);
+  transform: translate(150px, 0) rotate(25deg);
   /* opacity: 0; */
 }
 .cat-card.left {
-  transform: translate(-150vw, 0) rotate(-25deg);
+  transform: translate(-150px, 0) rotate(-25deg);
   /* opacity: 0; */
 }
 .avatar {

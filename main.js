@@ -21,6 +21,7 @@ document.addEventListener("mousemove", function (e) {
   //   const opacity = 1 - Math.abs(distanceX) / 100;
   //   activeCard.style.opacity = opacity;
   activeCard.style.transform = `translate(-50%, -50%), translateX(${distanceX}px), rotate(${rotation}deg)`;
+
   const currentLocation = Math.abs(rotation);
   if (currentLocation >= 25) {
     if (distanceX > 0) {
@@ -31,11 +32,11 @@ document.addEventListener("mousemove", function (e) {
   }
 });
 
-// document.addEventListener("mouseup", function (e) {
-//   if (isDragging) {
-//     activeCard.style.opacity = "1";
-//     activeCard.style.transform = "translate(-50%, -50%)";
-//     isDragging = false;
-//     activeCard = null;
-//   }
-// });
+document.addEventListener("mouseup", function (e) {
+  if (isDragging) {
+    activeCard.style.opacity = "1";
+    activeCard.style.transform = "translate(-50%, -50%)";
+    isDragging = false;
+    activeCard = null;
+  }
+});
