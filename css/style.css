@@ -11,15 +11,14 @@ body {
 }
 
 .container {
-  width: 1200px;
+  width: 100vw;
   margin: 0 auto;
   position: relative;
   height: 100vh;
 }
 
 .cat-card {
-  margin-top: 20px;
-  width: 300px;
+  width: 30%;
   height: 90%;
   position: absolute;
   overflow: hidden;
