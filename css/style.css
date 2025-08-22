@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;
 }
-
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "Playball", sans-serif;
   font-weight: 500;
@@ -16,26 +18,18 @@ body {
 }
 
 .cat-card {
-  width: 30vw;
-  height: 90vh;
+  margin-top: 20px;
+  width: 300px;
+  height: 90%;
   position: absolute;
   overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: grab;
-  transition: 0.5s ease-in-out;
-  transition-property: transform, opacity;
-  transform-origin: bottom center;
+  transform-origin: center center;
 }
-.cat-card.right {
-  transform: translate(150px, 0) rotate(25deg);
-  /* opacity: 0; */
-}
-.cat-card.left {
-  transform: translate(-150px, 0) rotate(-25deg);
-  /* opacity: 0; */
-}
+
 .avatar {
   object-fit: cover;
   width: 100%;
@@ -46,19 +40,19 @@ body {
 .cat-info {
   position: absolute;
   z-index: 1;
-  bottom: 15%;
+  bottom: 20%;
   left: 15px;
-  width: 100%;
+  margin-bottom: 10px;
   color: #fff;
   padding: 10px;
 }
 h1 {
-  font-size: 40px;
+  font-size: 3rem;
   font-family: "Playball", sans-serif;
 }
 p {
   font-family: "Libre Bodoni", sans-serif;
-  font-size: 25px;
+  font-size: 1.6rem;
   line-height: 1.5;
 }
 
@@ -70,17 +64,21 @@ p {
   align-items: center;
   gap: 20px;
   position: absolute;
-  bottom: 5%;
+  bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
 }
 .disliked-icon,
 .liked-icon {
-  font-size: 30px;
+  font-size: 2rem;
   padding: 20px;
   color: red;
   background-color: rgb(255, 255, 255, 0.3);
   border-radius: 50%;
   cursor: grab;
+}
+.liked,
+.disliked {
+  background-color: goldenrod;
 }
