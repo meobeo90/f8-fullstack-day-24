@@ -5,6 +5,13 @@ let activeCard = null;
 const threshold = 150;
 let currentX = 0;
 
+catCards.forEach((card) => {
+  const img = card.querySelector(".avatar");
+  img.onload = () => {
+    card.classList.add("loaded");
+  };
+});
+
 function updateIcons(card, direction) {
   const likedIcon = card.icons[0];
   const dislikedIcon = card.icons[1];
@@ -18,6 +25,20 @@ function updateIcons(card, direction) {
   } else {
     likedIcon.classList.remove("liked");
     dislikedIcon.classList.remove("disliked");
+  }
+}
+
+function updateBorder(card, direction) {
+  if (direction < 0) {
+    card.classList.add("liked");
+    card.classList.remove("disliked");
+    console.log();
+  } else if (direction > 0) {
+    card.classList.add("disliked");
+    card.classList.remove("liked");
+  } else {
+    card.classList.remove("liked");
+    card.classList.remove("disliked");
   }
 }
 
@@ -39,6 +60,7 @@ document.addEventListener("mousemove", (e) => {
   activeCard.style.transform = `translate(-50%, -50%) translateX(${currentX}px) rotate(${rotation}deg)`;
 
   updateIcons(activeCard, currentX);
+  updateBorder(activeCard, currentX);
 
   if (Math.abs(currentX) > threshold) {
     Object.assign(activeCard.style, {
@@ -46,6 +68,7 @@ document.addEventListener("mousemove", (e) => {
       transition: "opacity 0.3s ease",
     });
     updateIcons(activeCard, 0);
+    updateBorder(activeCard, 0);
     setTimeout(() => {
       if (activeCard) activeCard.remove();
       activeCard = null;
@@ -65,6 +88,7 @@ document.addEventListener("mouseup", () => {
     });
 
     updateIcons(activeCard, 0);
+    updateBorder(activeCard, 0);
   }
 
   isDragging = false;
@@ -88,12 +112,14 @@ document.addEventListener("touchmove", (e) => {
   const rotation = currentX / 25;
   activeCard.style.transform = `translate(-50%, -50%) translateX(${currentX}px) rotate(${rotation}deg)`;
   updateIcons(activeCard, currentX);
+  updateBorder(activeCard, currentX);
   if (Math.abs(currentX) > threshold) {
     Object.assign(activeCard.style, {
       opacity: "0",
       transition: "opacity 0.3s ease",
     });
     updateIcons(activeCard, 0);
+    updateBorder(activeCard, 0);
     setTimeout(() => {
       if (activeCard) activeCard.remove();
       activeCard = null;
@@ -111,6 +137,7 @@ document.addEventListener("touchend", () => {
       transition: "transform 0.3s ease, opacity 0.3s ease",
     });
     updateIcons(activeCard, 0);
+    updateBorder(activeCard, 0);
   }
   activeCard = null;
   isDragging = false;

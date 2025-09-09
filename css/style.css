@@ -27,13 +27,29 @@ body {
   transform: translate(-50%, -50%);
   cursor: grab;
   transform-origin: center center;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+.placeholder {
+  position: absolute;
+  inset: 0;
+  background: url("../img/cat-placeholder.webp") center/cover no-repeat;
+  z-index: 10;
+  border-radius: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
+.cat-card.loaded .placeholder {
+  opacity: 0;
+}
 .avatar {
   object-fit: cover;
   width: 100%;
   border-radius: 10px;
   height: 100%;
+  display: block;
 }
 
 .cat-info {
@@ -80,4 +96,17 @@ p {
 .liked,
 .disliked {
   background-color: goldenrod;
+}
+
+.cat-card.liked {
+  border-color: green;
+}
+
+.cat-card.disliked {
+  border-color: red;
+}
+@media screen and (max-width: 768px) {
+  .cat-card {
+    width: 80%;
+  }
 }
